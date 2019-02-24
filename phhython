@@ -1,0 +1,113 @@
+from tkinter import*
+
+def btnclick (numbers):
+    global operator
+    operator=operator+str(numbers)
+    textinput.set(operator)
+
+def btnclrdis():
+    global operator
+    operator=""
+    textinput.set("")
+
+def btneql():
+    global operator
+    sumup=str(eval(operator))
+    textinput.set(sumup)
+    operator=""
+def clear():
+    cal.destroy()
+
+cal=Tk()
+cal.title("CALCULATOR")
+clabel=Label(cal,font=('arial',10,'bold'),text="CALCULATOR")
+clabel.pack()
+operator=""
+textinput=StringVar()
+
+txtdisplay=Entry(cal,font=('arial',20,'bold'),textvariable=textinput,bd=30,
+                insertwidth=4,bg="silver",justify="right")
+txtdisplay.pack()
+
+f1=Frame(cal,bg='lightgray')
+btn1=Button(f1,padx=15,bd=5,fg='darkslategray',font=('arial',20,'bold'),
+            text='^',command=lambda:btnclick('**'))
+btn1.pack(side=LEFT)
+btn2=Button(f1,padx=15,bd=5,fg='darkslategray',font=('arial',20,'bold'),
+            text='1',command=lambda:btnclick(1))
+btn2.pack(side=LEFT)
+btn3=Button(f1,padx=15,bd=5,fg='darkslategray',font=('arial',20,'bold'),
+            text='2',command=lambda:btnclick(2))
+btn3.pack(side=LEFT)
+btn4=Button(f1,padx=15,bd=5,fg='darkslategray',font=('arial',20,'bold'),
+            text='3',command=lambda:btnclick(3))
+btn4.pack(side=LEFT)
+btn5=Button(f1,padx=16,bd=5,fg='darkslategray',font=('arial',20,'bold'),
+            text='AC',command=btnclrdis)
+btn5.pack(side=LEFT)
+f1.pack(side=TOP,expand=TRUE,fill=BOTH)
+
+f2=Frame(cal,bg='lightgray')
+btn6=Button(f2,padx=15,bd=5,fg='darkslategray',font=('arial',20,'bold'),
+            text='0',command=lambda:btnclick(0))
+btn6.pack(side=LEFT)
+btn7=Button(f2,padx=15,bd=5,fg='darkslategray',font=('arial',20,'bold'),
+            text='4',command=lambda:btnclick(4))
+btn7.pack(side=LEFT)
+btn8=Button(f2,padx=15,bd=5,fg='darkslategray',font=('arial',20,'bold'),
+            text='5',command=lambda:btnclick(5))
+btn8.pack(side=LEFT)
+btn9=Button(f2,padx=15,bd=5,fg='darkslategray',font=('arial',20,'bold'),
+            text='6',command=lambda:btnclick(6))
+btn9.pack(side=LEFT)
+btn10=Button(f2,padx=1,bd=5,fg='darkslategray',font=('arial',20,'bold'),
+            text='close',command=clear)
+btn10.pack(side=LEFT)
+f2.pack(side=TOP,expand=TRUE,fill=BOTH)
+
+
+f3=Frame(cal,bg='lightgray')
+
+btn11=Button(f3,padx=18,bd=5,fg='darkslategray',font=('arial',20,'bold'),
+            text='.',command=lambda:btnclick('.'))
+btn11.pack(side=LEFT)
+
+btn12=Button(f3,padx=15,bd=5,fg='darkslategray',font=('arial',20,'bold'),
+            text='7',command=lambda:btnclick(7))
+btn12.pack(side=LEFT)
+btn13=Button(f3,padx=15,bd=5,fg='darkslategray',font=('arial',20,'bold'),
+            text='8',command=lambda:btnclick(8))
+btn13.pack(side=LEFT)
+btn14=Button(f3,padx=15,bd=5,fg='darkslategray',font=('arial',20,'bold'),
+            text='9',command=lambda:btnclick(9))
+btn14.pack(side=LEFT)
+btn15=Button(f3,padx=25,bd=5,fg='darkslategray',font=('arial',20,'bold'),
+            text='%',command=lambda:btnclick('%'))
+btn15.pack(side=LEFT)
+f3.pack(side=TOP,expand=TRUE,fill=BOTH)
+
+f4=Frame(cal,bg='lightgray')
+btn16=Button(f4,padx=14,bd=5,fg='darkslategray',font=('arial',20,'bold'),
+            text='+',command=lambda:btnclick('+'))
+btn16.pack(side=LEFT)
+btn17=Button(f4,padx=18,bd=5,fg='darkslategray',font=('arial',20,'bold'),
+            text='-',command=lambda:btnclick('-'))
+btn17.pack(side=LEFT)
+btn18=Button(f4,padx=18,bd=5,fg='darkslategray',font=('arial',20,'bold'),
+            text='/',command=lambda:btnclick('/'))
+btn18.pack(side=LEFT)
+btn19=Button(f4,padx=17,bd=5,fg='darkslategray',font=('arial',20,'bold'),
+            text='*',command=lambda:btnclick('*'))
+btn19.pack(side=LEFT)
+btn20=Button(f4,padx=29,bd=5,fg='darkslategray',font=('arial',20,'bold'),
+            text='=',command=btneql)
+btn20.pack(side=LEFT)         
+f4.pack(side=TOP,expand=TRUE,fill=BOTH)
+
+cal.mainloop()
+
+
+
+
+
+
